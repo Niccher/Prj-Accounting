@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-class Users extends BaseController
-{
+class Users extends BaseController{
+
     public function writer(){
         $data['title'] = "Writers";
         $data['page_title'] = "Writers";
@@ -11,7 +11,7 @@ class Users extends BaseController
         return view('needed/header', $data).
             view('needed/sidebar', $data).
             view('needed/sidebar').
-            view('admin/home').
+            view('admin/users/writers').
             view('needed/footer');
     }
 }

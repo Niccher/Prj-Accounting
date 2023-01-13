@@ -33,13 +33,13 @@ $routes->get('/', 'Home::index');
 
 $routes->get('/home', 'Home::home');
 
-$routes->get('/source/fiverr', 'Source::fiverr');
-$routes->get('/source/dc', 'Source::direct_client');
+$routes->get('/source/fiverr', 'Sources::fiverr');
+$routes->get('/source/dc', 'Sources::direct_client');
 
-$routes->get('/users/writer', 'User::writer');
+$routes->get('/users/writer', 'Users::writer');
 
 $routes->get('/activities/calendar', 'Activities::calendar');
-$routes->get('/activities/invoices', 'Invoice::home');
+$routes->get('/activities/invoices', 'Activities::invoices');
 
 /*
  * --------------------------------------------------------------------

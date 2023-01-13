@@ -33,7 +33,7 @@
                     <li class="nav-header">Sources</li>
                     <li class="nav-item">
                         <?php
-                            if ($page_title == "Source"){
+                            if ($page_title == "Source_fiverr"){
                                 echo '<a href="'.base_url('source/fiverr').'" class="nav-link active">';
                             }else{
                                 echo '<a href="'.base_url('source/fiverr').'" class="nav-link">';
@@ -47,7 +47,7 @@
                     </li>
                     <li class="nav-item">
                         <?php
-                            if ($page_title == "Source"){
+                            if ($page_title == "Source_dc"){
                                 echo '<a href="'.base_url('source/dc').'" class="nav-link active">';
                             }else{
                                 echo '<a href="'.base_url('source/dc').'" class="nav-link">';
@@ -62,7 +62,7 @@
                     <li class="nav-header">Writers</li>
                     <li class="nav-item">
                         <?php
-                            if ($page_title == "Writer"){
+                            if ($page_title == "Writers"){
                                 echo '<a href="'.base_url('users/writer').'" class="nav-link active">';
                             }else{
                                 echo '<a href="'.base_url('users/writer').'" class="nav-link">';
@@ -77,7 +77,7 @@
                     <li class="nav-header">Activities</li>
                     <li class="nav-item">
                         <?php
-                            if ($page_title == "Writer"){
+                            if ($page_title == "Calendar"){
                                 echo '<a href="'.base_url('activities/calendar').'" class="nav-link active">';
                             }else{
                                 echo '<a href="'.base_url('activities/calendar').'" class="nav-link">';
