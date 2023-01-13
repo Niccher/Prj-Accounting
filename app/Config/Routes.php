@@ -31,6 +31,16 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+$routes->get('/home', 'Home::home');
+
+$routes->get('/source/fiverr', 'Source::fiverr');
+$routes->get('/source/dc', 'Source::direct_client');
+
+$routes->get('/users/writer', 'User::writer');
+
+$routes->get('/activities/calendar', 'Activities::calendar');
+$routes->get('/activities/invoices', 'Invoice::home');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
