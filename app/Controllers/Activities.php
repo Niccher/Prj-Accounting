@@ -11,7 +11,7 @@ class Activities extends BaseController{
         return view('needed/header', $data).
             view('needed/sidebar', $data).
             view('admin/activities/calendar').
-            view('needed/footer');
+            view('needed/footer_calendar');
     }
 
     public function invoices(){

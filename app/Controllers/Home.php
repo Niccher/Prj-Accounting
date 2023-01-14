@@ -15,6 +15,6 @@ class Home extends BaseController
         return view('needed/header', $data).
             view('needed/sidebar', $data).
             view('admin/home').
-            view('needed/footer');
+            view('needed/footer_charts');
     }
 }

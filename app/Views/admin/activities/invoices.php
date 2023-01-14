@@ -25,6 +25,77 @@
     <section class="content">
         <div class="container-fluid"> </div>
         <!-- /.container-fluid -->
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">All Paid Invoices</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th style="width: 10px">#</th>
+                            <th>
+                                <i class="fas fa-user-tag text-success"></i>
+                                Paid to:
+                            </th>
+                            <th>
+                                <i class="fas fa-hand-holding-usd text-success"></i>
+                                Amount Paid
+                            </th>
+                            <th>
+                                <i class="fas fa-calendar-check text-success"></i>
+                                Date
+                            </th>
+                            <th>
+                                <i class="fas fa-certificate text-success"></i>
+                                Method
+                            </th>
+                            <th>
+                                <i class="fas fa-file-pdf text-success"></i>
+                                Link To PDF Invoice
+                            </th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1.</td>
+                                <td>Writer 1</td>
+                                <td>4500.00 KShs</td>
+                                <td>Dec 29 2:50:56</td>
+                                <td>MPESA</td>
+                                <td>
+                                    <a href="<?php echo base_url('#');?>">
+                                        <i class="fas fa-cloud-download-alt"></i>
+                                        MPESA_date_here_personal_name.pdf
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1.</td>
+                                <td>Writer 1</td>
+                                <td>4500.00 KShs</td>
+                                <td>Dec 29 2:50:56</td>
+                                <td>MPESA</td>
+                                <td>
+                                    <a href="<?php echo base_url('#');?>">
+                                        <i class="fas fa-cloud-download-alt"></i>
+                                        MPESA_date_here_personal_name.pdf
+                                    </a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer clearfix">
+                </div>
+            </div>
+            <!-- /.card -->
+        </div>
     </section>
     <!-- /.content -->
 </div>
