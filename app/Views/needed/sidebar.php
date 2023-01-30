@@ -59,6 +59,21 @@
                             </p>
                         </a>
                     </li>
+                    <li class="nav-header">Payments</li>
+                    <li class="nav-item">
+                        <?php
+                            if ($page_title == "Monthly"){
+                                echo '<a href="'.base_url('monthly').'" class="nav-link active">';
+                            }else{
+                                echo '<a href="'.base_url('monthly').'" class="nav-link">';
+                            }
+                        ?>
+                        <i class="fas fa-calendar-check"></i>
+                        <p>
+                            Monthly
+                        </p>
+                        </a>
+                    </li>
                     <li class="nav-header">Writers</li>
                     <li class="nav-item">
                         <?php

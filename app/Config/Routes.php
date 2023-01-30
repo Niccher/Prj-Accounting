@@ -29,12 +29,14 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Home::home');
 
 $routes->get('/home', 'Home::home');
 
 $routes->get('/source/fiverr', 'Sources::fiverr');
 $routes->get('/source/dc', 'Sources::direct_client');
+
+$routes->get('/monthly/', 'Monthly::index');
 
 $routes->get('/users/writer', 'Users::writer');
 
