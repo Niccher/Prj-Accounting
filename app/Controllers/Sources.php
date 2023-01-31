@@ -24,4 +24,23 @@ class Sources extends BaseController{
             view('admin/sources/dc').
             view('needed/footer');
     }
+
+    public function work_timeline(){
+        $data['title'] = "Account analytics";
+
+        $agent = $this->request->getUserAgent();
+        $uri = new \CodeIgniter\HTTP\URI($agent->getReferrer());
+
+        if($uri->getSegment(2) == "dc"){
+            $data['page_title'] = "Source_dc";
+        }else{
+            $data['page_title'] = "Source_fiverr";
+        }
+
+        return view('needed/header', $data).
+            view('needed/sidebar', $data).
+            view('needed/sidebar').
+            view('admin/sources/show_timeline').
+            view('needed/footer');
+    }
 }

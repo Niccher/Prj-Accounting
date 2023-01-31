@@ -87,10 +87,66 @@
                 </div>
             </form>
 
-
             <div class="card card-solid">
                 <div class="card-body pb-0">
                     <div class="row">
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th style="width: 10px">#</th>
+                                    <th>
+                                        <i class="fas fa-user-tag text-success"></i>
+                                        Full Name
+                                    </th>
+
+                                    <th>
+                                        <i class="fas fa-chart-line text-success"></i>
+                                        Totals
+                                    </th>
+
+                                    <th>
+                                        <i class="fas fa-chart-area text-success"></i>
+                                        Earned
+                                    </th>
+
+                                    <th>
+                                        <i class="fas fa-chart-bar text-success"></i>
+                                        Profit Brought
+                                    </th>
+
+                                    <th>
+                                        <i class="fas fa-calendar-check text-success"></i>
+                                        Assignment Done
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1.</td>
+                                    <td>Writer 1</td>
+                                    <td>148, 500.00 KShs</td>
+                                    <td>40, 450.00 KShs</td>
+                                    <td>104, 000.00 KShs</td>
+
+                                    <td>
+                                        7 Assignments
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>1.</td>
+                                    <td>Writer 1</td>
+                                    <td>148, 500.00 KShs</td>
+                                    <td>40, 450.00 KShs</td>
+                                    <td>104, 000.00 KShs</td>
+
+                                    <td>
+                                        14 Assignment
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <!-- /.card-body -->

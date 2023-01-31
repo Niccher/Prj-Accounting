@@ -31,17 +31,19 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::home');
 
-$routes->get('/home', 'Home::home');
+$routes->get('home', 'Home::home');
 
-$routes->get('/source/fiverr', 'Sources::fiverr');
-$routes->get('/source/dc', 'Sources::direct_client');
+$routes->get('source/fiverr', 'Sources::fiverr');
+$routes->get('source/dc', 'Sources::direct_client');
+$routes->get('source/timeline', 'Sources::work_timeline');
 
-$routes->get('/monthly/', 'Monthly::index');
+$routes->get('monthly/', 'Monthly::index');
+$routes->post('monthly/filter', 'Monthly::filtered');
 
-$routes->get('/users/writer', 'Users::writer');
+$routes->get('users/writer', 'Users::writer');
 
-$routes->get('/activities/calendar', 'Activities::calendar');
-$routes->get('/activities/invoices', 'Activities::invoices');
+$routes->get('activities/calendar', 'Activities::calendar');
+$routes->get('activities/invoices', 'Activities::invoices');
 
 /*
  * --------------------------------------------------------------------
