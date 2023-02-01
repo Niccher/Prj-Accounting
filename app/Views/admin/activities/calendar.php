@@ -28,7 +28,7 @@
         <div class="container-fluid"> </div>
             <div class="row">
                 <!-- /.col -->
-                <div class="col-md-12">
+                <div class="col-md-10 offset-md-1">
                     <div class="card card-primary">
                         <div class="card-body p-0">
                             <!-- THE CALENDAR -->

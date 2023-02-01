@@ -33,6 +33,20 @@
                     <li class="nav-header">Sources</li>
                     <li class="nav-item">
                         <?php
+                            if ($page_title == "Source_both"){
+                                echo '<a href="'.base_url('source/both').'" class="nav-link active">';
+                            }else{
+                                echo '<a href="'.base_url('source/both').'" class="nav-link">';
+                            }
+                        ?>
+                            <i class="nav-icon fas fa-clipboard"></i>
+                            <p>
+                                Both Sources
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <?php
                             if ($page_title == "Source_fiverr"){
                                 echo '<a href="'.base_url('source/fiverr').'" class="nav-link active">';
                             }else{

@@ -71,7 +71,7 @@
                             <a href="<?php echo base_url('source/timeline'); ?>">
                                 <div class="external-event bg-success">
                                     <i class="far fa-eye"></i>
-                                    View
+                                    Simple View
                                 </div>
                             </a>
                         </td>
@@ -90,7 +90,7 @@
                         <a href="<?php echo base_url('source/timeline'); ?>">
                             <div class="external-event bg-success">
                                 <i class="far fa-eye"></i>
-                                View
+                                Simple View
                             </div>
                         </a>
                     </td>
