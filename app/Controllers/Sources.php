@@ -79,41 +79,15 @@ class Sources extends BaseController{
             view('needed/footer');
     }
 
-    public function work_timeline_monthly(){
-        $data['title'] = "Account analytics";
+    public function add_entry(){
+        $data['title'] = "Add entry";
 
-        $agent = $this->request->getUserAgent();
-        $uri = new \CodeIgniter\HTTP\URI($agent->getReferrer());
-
-        if($uri->getSegment(2) == "dc"){
-            $data['page_title'] = "Source_dc";
-        }else{
-            $data['page_title'] = "Source_fiverr";
-        }
+        $data['page_title'] = "Source_add";
 
         return view('needed/header', $data).
             view('needed/sidebar', $data).
             view('needed/sidebar').
-            view('admin/sources/show_timeline').
-            view('needed/footer');
-    }
-
-    public function work_timeline_alltime(){
-        $data['title'] = "Account analytics";
-
-        $agent = $this->request->getUserAgent();
-        $uri = new \CodeIgniter\HTTP\URI($agent->getReferrer());
-
-        if($uri->getSegment(2) == "dc"){
-            $data['page_title'] = "Source_dc";
-        }else{
-            $data['page_title'] = "Source_fiverr";
-        }
-
-        return view('needed/header', $data).
-            view('needed/sidebar', $data).
-            view('needed/sidebar').
-            view('admin/sources/show_timeline').
-            view('needed/footer');
+            view('admin/sources/add_entry').
+            view('needed/footer_add_entry');
     }
 }

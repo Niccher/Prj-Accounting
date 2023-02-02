@@ -39,6 +39,7 @@ $routes->get('source/fiverr', 'Sources::fiverr');
 $routes->get('source/dc', 'Sources::direct_client');
 $routes->get('source/timeline', 'Sources::work_timeline');
 $routes->get('source/timeline_both', 'Sources::both_sources_writer');
+$routes->get('source/add_entry', 'Sources::add_entry');
 
 $routes->get('monthly/', 'Monthly::index');
 $routes->post('monthly/filter', 'Monthly::filtered');

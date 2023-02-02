@@ -10,10 +10,12 @@
                 <!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <div class="external-event bg-gradient-secondary">
-                            <i class="fas fa-plus-square"></i>
-                            Add a record
-                        </div>
+                        <a href="<?php echo base_url('source/add_entry'); ?>">
+                            <div class="external-event bg-gradient-secondary">
+                                <i class="fas fa-plus-square"></i>
+                                Add a record
+                            </div>
+                        </a>
                     </ol>
                 </div>
                 <!-- /.col -->
