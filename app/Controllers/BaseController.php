@@ -48,6 +48,8 @@ abstract class BaseController extends Controller
      */
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
+        $this->helpers = array_merge($this->helpers, ['setting']);
+
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
 
@@ -55,5 +57,7 @@ abstract class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
         $uri = new \CodeIgniter\HTTP\URI();
+
+        $request = \Config\Services::request();
     }
 }

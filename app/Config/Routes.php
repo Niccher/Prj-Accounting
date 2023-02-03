@@ -33,22 +33,35 @@ $routes->get('/', 'Home::home');
 
 $routes->get('home', 'Home::home');
 
-$routes->get('source/both', 'Sources::both_sources');
-$routes->get('source/both/writer/(:any)', 'Sources::both_sources_writer');
-$routes->get('source/fiverr', 'Sources::fiverr');
-$routes->get('source/dc', 'Sources::direct_client');
-$routes->get('source/timeline', 'Sources::work_timeline');
-$routes->get('source/timeline_both', 'Sources::both_sources_writer');
-$routes->get('source/add_entry', 'Sources::add_entry');
+$routes->group('source', static function ($routes) {
+    $routes->get('both', 'Sources::both_sources');
+    $routes->get('both/writer/(:any)', 'Sources::both_sources_writer');
+    $routes->get('fiverr', 'Sources::fiverr');
+    $routes->get('dc', 'Sources::direct_client');
+    $routes->get('timeline', 'Sources::work_timeline');
+    $routes->get('timeline_both', 'Sources::both_sources_writer');
+    $routes->get('add_entry', 'Sources::add_entry');
+    $routes->post('insert_entry', 'Sources::insert_entry');
+});
 
-$routes->get('monthly/', 'Monthly::index');
-$routes->post('monthly/filter', 'Monthly::filtered');
+$routes->group('monthly', static function ($routes) {
+    $routes->get('/', 'Monthly::index');
+    $routes->post('filter', 'Monthly::filtered');
+});
 
-$routes->get('users/writer', 'Users::writer');
-$routes->get('users/writer/profile', 'Users::writer_profile');
+$routes->group('users', static function ($routes) {
+    $routes->get('writer', 'Users::writer');
+    $routes->get('writer/profile', 'Users::writer_profile');
+});
 
-$routes->get('activities/calendar', 'Activities::calendar');
-$routes->get('activities/invoices', 'Activities::invoices');
+$routes->group('activities', static function ($routes) {
+    $routes->get('calendar', 'Activities::calendar');
+    $routes->get('invoices', 'Activities::invoices');
+});
+
+
+
+service('auth')->routes($routes);
 
 /*
  * --------------------------------------------------------------------

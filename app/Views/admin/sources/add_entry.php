@@ -2,6 +2,9 @@
 <link rel="stylesheet" href="<?php echo base_url('assets/plugins/select2/css/select2.min.css');?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css');?>">
 
+<!-- daterange picker -->
+<link rel="stylesheet" href="<?php echo base_url('assets/plugins/datetimepicker/bootstrap-datetimepicker.min.css');?>">
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -74,14 +77,19 @@
                             <div class="table-responsive mailbox-messages">
                                 <div class="card card">
                                     <!-- form start -->
-                                    <form class="form-horizontal">
+                                    <?php
+                                    $attributes = ['class' => 'form-horizontal'];
+                                    echo form_open('source/insert_entry', $attributes);?>
+                                    <!--<form class="form-horizontal">-->
                                         <div class="card-body">
+
                                             <div class="form-group row">
                                                 <label for="inp_1" class="col-sm-3 col-form-label">Assignment Name</label>
                                                 <div class="col-sm-8">
                                                     <input type="text" class="form-control" id="inp_1" name="inp_name" placeholder="Assignment Name">
                                                 </div>
                                             </div>
+
                                             <div class="form-group row">
                                                 <label for="inp_2" class="col-sm-3 col-form-label">Writer Assigned</label>
                                                 <div class="col-sm-8">
@@ -91,18 +99,21 @@
                                                     </select>
                                                 </div>
                                             </div>
+
                                             <div class="form-group row">
                                                 <label for="inp_3" class="col-sm-3 col-form-label">Assignment Price</label>
                                                 <div class="col-sm-8">
                                                     <input type="text" class="form-control" id="inp_3" name="inp_price" placeholder="Assignment Price">
                                                 </div>
                                             </div>
+
                                             <div class="form-group row">
                                                 <label for="inp_4" class="col-sm-3 col-form-label">Writer Paid</label>
                                                 <div class="col-sm-8">
                                                     <input type="text" class="form-control" id="inp_4" name="inp_paid" placeholder="Writer's Pay">
                                                 </div>
                                             </div>
+
                                             <div class="form-group row">
                                                 <label for="inp_5" class="col-sm-3 col-form-label">Assignment Source</label>
                                                 <div class="col-sm-8">
@@ -112,15 +123,38 @@
                                                     </select>
                                                 </div>
                                             </div>
+
+                                            <div class="form-group row">
+                                                <label for="inp_51" class="col-sm-3 col-form-label">Assignment Status</label>
+                                                <div class="col-sm-8">
+                                                    <select class="custom-select" id="inp_51" name="inp_status">
+                                                        <option value="status_pending">Completed</option>
+                                                        <option value="status_complete">Pending</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label for="inp_6" class="col-sm-3 col-form-label">Assignment Created at</label>
+                                                <div class="col-sm-8">
+                                                    <div class="input-group" id="inp_get_date" data-target-input="nearest">
+                                                        <input type="text" class="form-control datetimepicker-input" name="inp_create_date" id="inp_create_date" />
+                                                        <div class="input-group-append" data-target="#inp_get_date" data-toggle="datetimepicker">
+                                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
                                         <!-- /.card-body -->
                                         <div class="card-footer">
                                             <div class="col-6"></div>
                                             <div class="col-6 float-right">
                                                 <div class="row">
-                                                    <a href="#" class="btn btn-info btn-md col-5">
+                                                    <button type="submit" class="btn btn-info btn-md col-5">
                                                         Add Entry
-                                                    </a>
+                                                    </button>
                                                     <div class="col-2"></div>
                                                     <a href="#" class="btn btn-primary btn-md col-5">
                                                         Reset

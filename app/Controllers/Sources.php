@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\Mod_Entries;
+
 class Sources extends BaseController{
 
     public function both_sources(){
@@ -89,5 +91,23 @@ class Sources extends BaseController{
             view('needed/sidebar').
             view('admin/sources/add_entry').
             view('needed/footer_add_entry');
+    }
+
+    public function insert_entry(){
+        $mod_entry = new Mod_Entries();
+
+        $request = \Config\Services::request();
+        $wrk_name = $request->getVar('inp_name');
+        $wrk_writer = $request->getVar('inp_writer');
+        $wrk_price = $request->getVar('inp_price');
+        $wrk_paid = $request->getVar('inp_paid');
+        $wrk_source = $request->getVar('inp_source');
+        $wrk_status = $request->getVar('inp_status');
+
+        //$wrk_c_date = $request->getVar('inp_create_date');
+        $mydatetime = str_replace('/','-', $request->getVar('inp_create_date'));
+        $wrk_c_date = date("Y-m-d H:i:s", strtotime($mydatetime));
+
+        $mod_entry->entry_add($wrk_name, $wrk_writer, $wrk_price, $wrk_paid, $wrk_source, $wrk_status, $wrk_c_date);
     }
 }
