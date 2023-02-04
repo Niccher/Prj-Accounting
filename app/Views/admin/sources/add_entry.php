@@ -40,19 +40,19 @@
                                 <li class="nav-item active">
                                     <a href="#" class="nav-link">
                                         <i class="fas fa-clipboard"></i> Both Sources
-                                        <span class="badge bg-gradient-primary float-right">12</span>
+                                        <span class="badge bg-gradient-primary float-right"><?php echo ($entry_info['ent_all']); ?></span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="fab fa-fonticons-fi"></i> Source Fiverr
-                                        <span class="badge bg-gradient-info float-right">6</span>
+                                        <span class="badge bg-gradient-info float-right"><?php echo ($entry_info['ent_fiverr']); ?></span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="fab fa-dailymotion"></i> Source Direct Client
-                                        <span class="badge bg-gradient-cyan float-right">8</span>
+                                        <span class="badge bg-gradient-cyan float-right"><?php echo ($entry_info['ent_dc']); ?></span>
                                     </a>
                                 </li>
                             </ul>

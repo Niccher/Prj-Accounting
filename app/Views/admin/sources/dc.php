@@ -59,44 +59,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1.</td>
-                        <td>Writer 1</td>
-                        <td>148, 500.00 KShs</td>
-                        <td>40, 450.00 KShs</td>
-                        <td>104, 000.00 KShs</td>
-
-                        <td>
-                            7 Assignments
-                        </td>
-                        <td>
-                            <a href="<?php echo base_url('source/timeline'); ?>">
-                                <div class="external-event bg-success">
-                                    <i class="far fa-eye"></i>
-                                    Simple View
-                                </div>
-                            </a>
-                        </td>
-                    </tr>
-
-                <tr>
-                    <td>2.</td>
-                    <td>Writer 2</td>
-                    <td>148, 500.00 KShs</td>
-                    <td>40, 450.00 KShs</td>
-                    <td>104, 000.00 KShs</td>
-                    <td>
-                        14 Assignments
-                    </td>
-                    <td>
-                        <a href="<?php echo base_url('source/timeline'); ?>">
-                            <div class="external-event bg-success">
-                                <i class="far fa-eye"></i>
-                                Simple View
-                            </div>
-                        </a>
-                    </td>
-                </tr>
+                <?php
+                    $counter = 0;
+                    foreach ($entry_info as $entry) {
+                        $counter ++;
+                        $url = base_url('source/timeline');
+                        echo '<tr>';
+                            echo '<td> '.$counter.' </td >';
+                            echo '<td> '.$entry->ent_writer.' </td >';
+                            echo '<td> '.$entry->ent_per_person_sum.' </td >';
+                            echo '<td> '.$entry->ent_per_person_pay.' </td >';
+                            echo '<td> '.$entry->ent_per_person_profit.' </td >';
+                            echo '<td> '.$entry->ent_per_person.' Assignments </td >';
+                            echo '<td><a href = "'.$url.'" class="btn btn-sm bg-success"> <i class="far fa-eye" ></i > Simple View </a> </td>';
+                        echo '/<tr>';
+                    }
+                ?>
                 </tbody>
             </table>
         </div>

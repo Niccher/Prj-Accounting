@@ -10,9 +10,12 @@ class Sources extends BaseController{
         $data['title'] = "Accounts from All Sources";
         $data['page_title'] = "Source_both";
 
+        $mod_entry = new Mod_Entries();
+        $entries['entry_info'] = $mod_entry->entry_list_all();
+
         return view('needed/header', $data).
             view('needed/sidebar', $data).
-            view('admin/sources/both').
+            view('admin/sources/both', $entries).
             view('needed/footer');
     }
 
@@ -30,9 +33,12 @@ class Sources extends BaseController{
         $data['title'] = "Accounts from Fiverr";
         $data['page_title'] = "Source_fiverr";
 
+        $mod_entry = new Mod_Entries();
+        $entries['entry_info'] = $mod_entry->entry_list_fiverr();
+
         return view('needed/header', $data).
             view('needed/sidebar', $data).
-            view('admin/sources/fiverr').
+            view('admin/sources/fiverr', $entries).
             view('needed/footer');
     }
 
@@ -40,10 +46,13 @@ class Sources extends BaseController{
         $data['title'] = "Accounts from DC";
         $data['page_title'] = "Source_dc";
 
+        $mod_entry = new Mod_Entries();
+        $entries['entry_info'] = $mod_entry->entry_list_dc();
+
         return view('needed/header', $data).
             view('needed/sidebar', $data).
             view('needed/sidebar').
-            view('admin/sources/dc').
+            view('admin/sources/dc', $entries).
             view('needed/footer');
     }
 
@@ -82,14 +91,17 @@ class Sources extends BaseController{
     }
 
     public function add_entry(){
+        $mod_entry = new Mod_Entries();
+
         $data['title'] = "Add entry";
 
         $data['page_title'] = "Source_add";
+        $entries['entry_info'] = $mod_entry->entry_count_all();
 
         return view('needed/header', $data).
             view('needed/sidebar', $data).
             view('needed/sidebar').
-            view('admin/sources/add_entry').
+            view('admin/sources/add_entry', $entries).
             view('needed/footer_add_entry');
     }
 
