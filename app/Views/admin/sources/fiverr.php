@@ -1,3 +1,5 @@
+<!-- Datatables -->
+<link rel="stylesheet" href="<?php echo base_url('assets/plugins/datatables/datatables.css');?>">
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -28,7 +30,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <table class="table table-bordered table-hover table-striped">
+            <table class="table table-bordered table-hover table-striped" id="datatable_now">
                 <thead>
                 <tr>
                     <th style="width: 10px">#</th>
@@ -72,7 +74,7 @@
                             echo '<td> '.$entry->ent_per_person_profit.' </td >';
                             echo '<td> '.$entry->ent_per_person.' Assignments </td >';
                             echo '<td><a href = "'.$url.'" class="btn btn-sm bg-success"> <i class="far fa-eye" ></i > Simple View </a> </td>';
-                            echo '/<tr>';
+                            echo '</tr>';
                         }
                     ?>
                 </tbody>

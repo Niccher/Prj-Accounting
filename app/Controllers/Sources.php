@@ -16,7 +16,7 @@ class Sources extends BaseController{
         return view('needed/header', $data).
             view('needed/sidebar', $data).
             view('admin/sources/both', $entries).
-            view('needed/footer');
+            view('needed/footer_tables');
     }
 
     public function both_sources_writer(){
@@ -39,7 +39,7 @@ class Sources extends BaseController{
         return view('needed/header', $data).
             view('needed/sidebar', $data).
             view('admin/sources/fiverr', $entries).
-            view('needed/footer');
+            view('needed/footer_tables');
     }
 
     public function direct_client(){
@@ -53,7 +53,7 @@ class Sources extends BaseController{
             view('needed/sidebar', $data).
             view('needed/sidebar').
             view('admin/sources/dc', $entries).
-            view('needed/footer');
+            view('needed/footer_tables');
     }
 
     public function work_timeline(){
@@ -72,7 +72,7 @@ class Sources extends BaseController{
             view('needed/sidebar', $data).
             view('needed/sidebar').
             view('admin/sources/show_timeline').
-            view('needed/footer');
+            view('needed/footer_tables');
     }
 
     public function work_timeline_both(){

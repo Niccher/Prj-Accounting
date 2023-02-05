@@ -63,49 +63,22 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>1.</td>
-                            <td>Writer 1</td>
-                            <td>148, 500.00 KShs</td>
-                            <td>40, 450.00 KShs</td>
-                            <td>104, 000.00 KShs</td>
-                            <td>
-                                <a href="<?php echo base_url('source/both/writer/writer1'); ?>">
-                                    <div class="external-event bg-success">
-                                        <i class="far fa-eye"></i>
-                                        Simple View
-                                    </div>
-                                </a>
-                            </td>
-                            <td>
-                                <div class="external-event bg-gradient-primary" data-toggle="modal" data-target="#modalProfile">
-                                    <i class="far fa-eye"></i>
-                                    View
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>1.</td>
-                            <td>Writer 1</td>
-                            <td>148, 500.00 KShs</td>
-                            <td>40, 450.00 KShs</td>
-                            <td>104, 000.00 KShs</td>
-                            <td>
-                                <a href="<?php echo base_url('source/both/writer/writer2'); ?>">
-                                    <div class="external-event bg-success">
-                                        <i class="far fa-eye"></i>
-                                        Simple View
-                                    </div>
-                                </a>
-                            </td>
-                            <td>
-                                <div class="external-event bg-gradient-primary" data-toggle="modal" data-target="#modalProfile">
-                                    <i class="far fa-eye"></i>
-                                    View
-                                </div>
-                            </td>
-                        </tr>
+                        <?php
+                            $counter = 0;
+                            foreach ($user_work as $entry) {
+                                $counter ++;
+                                $url = base_url('source/both/writer/writer2');
+                                echo '<tr>';
+                                    echo '<td> '.$counter.' </td >';
+                                    echo '<td> '.$entry->ent_writer.' </td >';
+                                    echo '<td> '.$entry->ent_per_person_sum.' </td >';
+                                    echo '<td> '.$entry->ent_per_person_pay.' </td >';
+                                    echo '<td> '.$entry->ent_per_person_profit.' </td >';
+                                    echo '<td><a href="'.$url.'"><div class="external-event bg-success"><i class="far fa-eye"></i>Simple View</div></a></td>';
+                                    echo '<td><div class="external-event bg-gradient-primary" data-toggle="modal" data-target="#modalProfile"><i class="far fa-eye"></i>View</div></td>';
+                                echo '</tr>';
+                            }
+                        ?>
                         </tbody>
                     </table>
                 </div>
