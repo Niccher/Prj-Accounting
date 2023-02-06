@@ -26,11 +26,15 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <div class="col-lg-3 col-6">
+                    <div class="col-lg-4 col-6">
                         <!-- small box -->
                         <div class="small-box bg-gray">
                             <div class="inner">
-                                <h3>150,100.00 KShs</h3>
+                                <h3>
+                                    <?php
+                                        echo number_to_currency($entry_banner->monies_all, 'KES', '', 1);
+                                    ?>
+                                </h3>
                                 <p>All Earning</p>
                             </div>
                             <div class="icon">
@@ -40,12 +44,16 @@
                         </div>
                     </div>
                     <!-- ./col -->
-                    <div class="col-lg-3 col-6">
+                    <div class="col-lg-4 col-6">
                         <!-- small box -->
                         <div class="small-box bg-secondary">
                             <div class="inner">
-                                <h3>53,000.00 KShs</h3>
-                                <p>Fiverr Earning</p>
+                                <h3>
+                                    <?php
+                                        echo number_to_currency($entry_banner->monies_paid, 'KES', '', 1);
+                                    ?>
+                                </h3>
+                                <p>Paid to Writers</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
@@ -54,29 +62,19 @@
                         </div>
                     </div>
                     <!-- ./col -->
-                    <div class="col-lg-3 col-6">
+                    <div class="col-lg-4 col-6">
                         <!-- small box -->
                         <div class="small-box bg-gray" disabled="">
                             <div class="inner">
-                                <h3>44,100.00 KShs</h3>
-                                <p>Direct Client Earning</p>
+                                <h3>
+                                    <?php
+                                        echo number_to_currency($entry_banner->monies_profit, 'KES', '', 1);
+                                    ?>
+                                </h3>
+                                <p>Profit Earning</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-person-add"></i>
-                            </div>
-                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-secondary">
-                            <div class="inner">
-                                <h3>65,000.00 KShs</h3>
-                                <p>Profit Earned</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-pie-graph"></i>
                             </div>
                             <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
@@ -159,33 +157,47 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table class="table table-bordered">
-                                    <thead>
-                                    <tr>
-                                        <th style="width: 10px">#</th>
-                                        <th>Name</th>
-                                        <th>Totals</th>
-                                        <th>Paid</th>
-                                        <th>Our Profit</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>1.</td>
-                                        <td>Writer Name</td>
-                                        <td>200,000.00 KShs</td>
-                                        <td>78,580.00 KShs Name</td>
-                                        <td>125,568.00 KShs</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2.</td>
-                                        <td>Writer Name 2</td>
-                                        <td>200,000.00 KShs</td>
-                                        <td>78,580.00 KShs Name</td>
-                                        <td>125,568.00 KShs</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                                <div class="card-body">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>
+                                                <i class="fas fa-user-tag text-success"></i>
+                                                Full Name
+                                            </th>
+                                            <th>
+                                                <i class="fas fa-chart-line text-success"></i>
+                                                Totals
+                                            </th>
+                                            <th>
+                                                <i class="fas fa-chart-area text-success"></i>
+                                                Earned
+                                            </th>
+                                            <th>
+                                                <i class="fas fa-chart-bar text-success"></i>
+                                                Profit Brought
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php
+                                            $counter = 0;
+                                            foreach ($user_work as $entry) {
+                                                $counter ++;
+                                                $url = base_url('source/both/writer/writer2');
+                                                echo '<tr>';
+                                                    echo '<td> '.$counter.' </td >';
+                                                    echo '<td> '.$entry->ent_writer.' </td >';
+                                                    echo '<td> '.$entry->ent_per_person_sum.' </td >';
+                                                    echo '<td> '.$entry->ent_per_person_pay.' </td >';
+                                                    echo '<td> '.$entry->ent_per_person_profit.' </td >';
+                                                echo '</tr>';
+                                            }
+                                        ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer clearfix">

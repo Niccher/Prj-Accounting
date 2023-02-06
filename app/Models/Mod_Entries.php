@@ -33,6 +33,18 @@ class Mod_Entries extends Model{
         }
     }
 
+    public function entry_home_banner(){
+        $builder = $this->db->table('tbl_entries');
+
+        $query_ent_prices = $builder->selectMax('ent_price', 'monies_all')
+            ->selectMax('ent_writer_pay','monies_paid')
+            ->selectSum('ent_profit','monies_profit')
+            ->get()
+            ->getRow();
+
+        return $query_ent_prices;
+    }
+
     public function entry_count_all(){
         $builder = $this->db->table('tbl_entries');
 
