@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Mod_Entries;
+use App\Models\Mod_Users;
 
 class Sources extends BaseController{
 
@@ -19,13 +20,23 @@ class Sources extends BaseController{
             view('needed/footer_tables');
     }
 
-    public function both_sources_writer(){
+    public function both_sources_writer($user_id = ""){
         $data['title'] = "Accounts from All Sources";
         $data['page_title'] = "Source_both";
+        $mod_users = new Mod_Users();
+
+        if($user_id == ""){
+            return redirect()->to('source/both');
+        }
+
+        $user['profile'] = $mod_users->users_simple_profile($user_id);
+        $user_id = $user['profile'][0]->Name."-*-".$user['profile'][0]->Person_ID;
+        $source_type = strtolower($data['page_title']);
+        $user['assignments'] = $mod_users->users_assigments_all($user_id);
 
         return view('needed/header', $data).
             view('needed/sidebar', $data).
-            view('admin/sources/show_timeline_both').
+            view('admin/sources/show_timeline_both', $user).
             view('needed/footer');
     }
 
@@ -56,22 +67,36 @@ class Sources extends BaseController{
             view('needed/footer_tables');
     }
 
-    public function work_timeline(){
+    public function work_timeline($user_id = ""){
         $data['title'] = "Account analytics";
+        $mod_users = new Mod_Users();
 
         $agent = $this->request->getUserAgent();
         $uri = new \CodeIgniter\HTTP\URI($agent->getReferrer());
 
         if($uri->getSegment(2) == "dc"){
             $data['page_title'] = "Source_dc";
+            $url = 'source/dc';
         }else{
             $data['page_title'] = "Source_fiverr";
+            $url = 'source/fiverr';
         }
+
+        if($user_id == ""){
+            return redirect()->to($url);
+        }
+
+        $user['profile'] = $mod_users->users_simple_profile($user_id);
+
+        $user_id = $user['profile'][0]->Name."-*-".$user['profile'][0]->Person_ID;
+        $source_type = strtolower($data['page_title']);
+
+        $user['assignments'] = $mod_users->users_assigments($user_id, $source_type);
 
         return view('needed/header', $data).
             view('needed/sidebar', $data).
             view('needed/sidebar').
-            view('admin/sources/show_timeline').
+            view('admin/sources/show_timeline', $user).
             view('needed/footer_tables');
     }
 
@@ -92,11 +117,14 @@ class Sources extends BaseController{
 
     public function add_entry(){
         $mod_entry = new Mod_Entries();
+        $mod_users = new Mod_Users();
 
         $data['title'] = "Add entry";
 
         $data['page_title'] = "Source_add";
         $entries['entry_info'] = $mod_entry->entry_count_all();
+
+        $entries['user_list'] = $mod_users->users_list();
 
         return view('needed/header', $data).
             view('needed/sidebar', $data).
@@ -121,5 +149,16 @@ class Sources extends BaseController{
         $wrk_c_date = date("Y-m-d H:i:s", strtotime($mydatetime));
 
         $mod_entry->entry_add($wrk_name, $wrk_writer, $wrk_price, $wrk_paid, $wrk_source, $wrk_status, $wrk_c_date);
+
+        $agent = $this->request->getUserAgent();
+        $uri = new \CodeIgniter\HTTP\URI($agent->getReferrer());
+
+        //$url = "";
+        if($request->getVar('inp_source') == "source_fiverr"){
+            $url = "source/fiverr";
+        }else{
+            $url = "source/dc";
+        }
+        return redirect()->to($url);
     }
 }

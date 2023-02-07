@@ -58,6 +58,8 @@ abstract class BaseController extends Controller
         // E.g.: $this->session = \Config\Services::session();
         $uri = new \CodeIgniter\HTTP\URI();
 
+        $encrypter = \Config\Services::encrypter();
+
         $request = \Config\Services::request();
     }
 }

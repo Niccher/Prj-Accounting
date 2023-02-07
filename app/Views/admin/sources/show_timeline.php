@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Work Flow for <a href="#">Username</a> </h1>
+                    <h1 class="m-0">Work Flow for <a href="#"><?php echo ($profile[0]->Name); ?></a> </h1>
                 </div>
                 <!-- /.col -->
             </div>
@@ -44,22 +44,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1.</td>
-                        <td>History essay</td>
-                        <td>5500.00 KShs</td>
-                        <td>3450.00 KShs</td>
-                        <td>2000.00 KShs</td>
-                        <td>May</td>
-                    </tr>
-                    <tr>
-                        <td>2.</td>
-                        <td>PPTX demo</td>
-                        <td>5500.00 KShs</td>
-                        <td>3450.00 KShs</td>
-                        <td>2000.00 KShs</td>
-                        <td>May</td>
-                    </tr>
+                    <?php
+                        $counter = 0;
+                        foreach ($assignments as $entry) {
+                            $dt = explode(' ',$entry->ent_date);
+                            $month = date( 'M', strtotime($dt[0]));
+                            $counter ++;
+                            echo '<tr>';
+                                echo '<td> '.$counter.' </td >';
+                                echo '<td> '.$entry->ent_name.' </td >';
+                                echo '<td> '.$entry->ent_price.' </td >';
+                                echo '<td> '.$entry->ent_writer_pay.' </td >';
+                                echo '<td> '.$entry->ent_profit.' </td >';
+                                echo '<td> '.$month.' </td >';
+                            echo '</tr>';
+                        }
+                    ?>
                 </tbody>
             </table>
         </div>

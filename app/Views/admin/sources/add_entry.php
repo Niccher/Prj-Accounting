@@ -94,8 +94,12 @@
                                                 <label for="inp_2" class="col-sm-3 col-form-label">Writer Assigned</label>
                                                 <div class="col-sm-8">
                                                     <select class="custom-select" id="inp_2" name="inp_writer">
-                                                        <option value="inp_writer_1">Writer 1</option>
-                                                        <option value="inp_writer_2">Writer 2</option>
+                                                        <?php
+                                                            foreach ($user_list as $user){
+                                                                $id = $user->Name."-*-".$user->Person_ID;
+                                                                echo '<option value="'.$id.'">'.$user->Name.'</option>';
+                                                            }
+                                                        ?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -125,16 +129,6 @@
                                             </div>
 
                                             <div class="form-group row">
-                                                <label for="inp_51" class="col-sm-3 col-form-label">Assignment Status</label>
-                                                <div class="col-sm-8">
-                                                    <select class="custom-select" id="inp_51" name="inp_status">
-                                                        <option value="status_pending">Completed</option>
-                                                        <option value="status_complete">Pending</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
                                                 <label for="inp_6" class="col-sm-3 col-form-label">Assignment Created at</label>
                                                 <div class="col-sm-8">
                                                     <div class="input-group" id="inp_get_date" data-target-input="nearest">
@@ -145,6 +139,23 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <div class="form-group row">
+                                                <label for="inp_51" class="col-sm-3 col-form-label">Assignment Status</label>
+                                                <div class="col-sm-8">
+                                                    <select class="custom-select" id="inp_51" name="inp_status">
+                                                        <option value="status_pending">Completed</option>
+                                                        <option value="status_complete">Pending</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
 
                                         </div>
                                         <!-- /.card-body -->
@@ -160,7 +171,6 @@
                                                         Reset
                                                     </a>
                                                 </div>
-
                                             </div>
                                         </div>
                                         <!-- /.card-footer -->

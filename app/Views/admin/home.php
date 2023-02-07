@@ -32,7 +32,8 @@
                             <div class="inner">
                                 <h3>
                                     <?php
-                                        echo number_to_currency($entry_banner->monies_all, 'KES', '', 1);
+                                    $var = $entry_banner->monies_all ?? 0.0;
+                                    echo number_to_currency($var, 'KES', '', 1);
                                     ?>
                                 </h3>
                                 <p>All Earning</p>
@@ -50,7 +51,9 @@
                             <div class="inner">
                                 <h3>
                                     <?php
-                                        echo number_to_currency($entry_banner->monies_paid, 'KES', '', 1);
+                                    //echo number_to_currency($entry_banner->monies_paid, 'KES', '', 1);
+                                    $var = $entry_banner->monies_paid ?? 0.0;
+                                    echo number_to_currency($var, 'KES', '', 1);
                                     ?>
                                 </h3>
                                 <p>Paid to Writers</p>
@@ -68,7 +71,9 @@
                             <div class="inner">
                                 <h3>
                                     <?php
-                                        echo number_to_currency($entry_banner->monies_profit, 'KES', '', 1);
+                                    //echo number_to_currency($entry_banner->monies_profit, 'KES', '', 1);
+                                    $var = $entry_banner->monies_profit ?? 0.0;
+                                    echo number_to_currency($var, 'KES', '', 1);
                                     ?>
                                 </h3>
                                 <p>Profit Earning</p>
@@ -182,18 +187,18 @@
                                         </thead>
                                         <tbody>
                                         <?php
-                                            $counter = 0;
-                                            foreach ($user_work as $entry) {
-                                                $counter ++;
-                                                $url = base_url('source/both/writer/writer2');
-                                                echo '<tr>';
-                                                    echo '<td> '.$counter.' </td >';
-                                                    echo '<td> '.$entry->ent_writer.' </td >';
-                                                    echo '<td> '.$entry->ent_per_person_sum.' </td >';
-                                                    echo '<td> '.$entry->ent_per_person_pay.' </td >';
-                                                    echo '<td> '.$entry->ent_per_person_profit.' </td >';
-                                                echo '</tr>';
-                                            }
+                                        $counter = 0;
+                                        foreach ($user_work as $entry) {
+                                            $counter ++;
+                                            $name = explode('-*-', $entry->ent_writer);
+                                            echo '<tr>';
+                                            echo '<td> '.$counter.' </td >';
+                                            echo '<td> '.$name[0].' </td >';
+                                            echo '<td> '.$entry->ent_per_person_sum.' </td >';
+                                            echo '<td> '.$entry->ent_per_person_pay.' </td >';
+                                            echo '<td> '.$entry->ent_per_person_profit.' </td >';
+                                            echo '</tr>';
+                                        }
                                         ?>
                                         </tbody>
                                     </table>

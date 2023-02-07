@@ -65,10 +65,11 @@
                     $counter = 0;
                     foreach ($entry_info as $entry) {
                         $counter ++;
-                        $url = base_url('source/timeline');
+                        $name = explode('-*-', $entry->ent_writer);
+                        $url = base_url('source/both/writer/'.$name[1]);
                         echo '<tr>';
                             echo '<td> '.$counter.' </td >';
-                            echo '<td> '.$entry->ent_writer.' </td >';
+                            echo '<td> '.$name[0].' </td >';
                             echo '<td> '.$entry->ent_per_person_sum.' </td >';
                             echo '<td> '.$entry->ent_per_person_pay.' </td >';
                             echo '<td> '.$entry->ent_per_person_profit.' </td >';

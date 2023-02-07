@@ -35,10 +35,12 @@ $routes->get('home', 'Home::home');
 
 $routes->group('source', static function ($routes) {
     $routes->get('both', 'Sources::both_sources');
-    $routes->get('both/writer/(:any)', 'Sources::both_sources_writer');
+    $routes->get('both/writer', 'Sources::both_sources_writer');
+    $routes->get('both/writer/(:num)', 'Sources::both_sources_writer/$1');
     $routes->get('fiverr', 'Sources::fiverr');
     $routes->get('dc', 'Sources::direct_client');
     $routes->get('timeline', 'Sources::work_timeline');
+    $routes->get('timeline/(:num)', 'Sources::work_timeline/$1');
     $routes->get('timeline_both', 'Sources::both_sources_writer');
     $routes->get('add_entry', 'Sources::add_entry');
     $routes->post('insert_entry', 'Sources::insert_entry');
