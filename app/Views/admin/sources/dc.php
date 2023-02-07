@@ -66,7 +66,7 @@
                     foreach ($entry_info as $entry) {
                         $counter ++;
                         $name = explode('-*-', $entry->ent_writer);
-                        $url = base_url('source/both/writer/'.$name[1]);
+                        $url = base_url('source/timeline/'.$name[1]);
                         echo '<tr>';
                             echo '<td> '.$counter.' </td >';
                             echo '<td> '.$name[0].' </td >';

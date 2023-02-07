@@ -96,7 +96,7 @@
                                                     <select class="custom-select" id="inp_2" name="inp_writer">
                                                         <?php
                                                             foreach ($user_list as $user){
-                                                                $id = $user->Name."-*-".$user->Person_ID;
+                                                                $id = $user->Name."-*-".$user->Id;
                                                                 echo '<option value="'.$id.'">'.$user->Name.'</option>';
                                                             }
                                                         ?>

@@ -21,6 +21,15 @@ class Database extends Config
      */
     public string $defaultGroup = 'default';
 
+    /*'username' => 'tendoll2_account',
+    'password' => 'tQb=&*tTIxpN',
+    'database' => 'tendoll2_prj_accounting',
+
+    'username' => 'tendoll2_alluser',
+    'password' => 'FS?S0@JmcKWq',
+    'database' => 'tendoll2_admin_portal',
+    */
+
     /**
      * The default database connection.
      */
@@ -49,7 +58,7 @@ class Database extends Config
         'hostname' => '127.0.0.1',
         'username' => 'root',
         'password' => '',
-        'database' => 'Prj_Images',
+        'database' => 'tendolla_test_run_db',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,

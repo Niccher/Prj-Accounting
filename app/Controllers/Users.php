@@ -12,6 +12,21 @@ class Users extends BaseController{
 
         $mod_users = new Mod_Users();
         $users['user_work'] = $mod_users->users_work_done();
+        $user_profs = array();
+
+        $counter = 0;
+        foreach ($users['user_work'] as $user) {
+            $counter ++;
+            $name = explode('-*-', $user->ent_writer);
+
+            if ($counter == 1){
+                $user_profs = $mod_users->users_simple_profile($name[1]);
+            }else{
+                $user_prof = array_push($user_profs, $mod_users->users_simple_profile($name[1]));
+            }
+        }
+
+        $users['user_profiles'] = $user_profs;
 
         return view('needed/header', $data).
             view('needed/sidebar', $data).

@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Work Flow for <a href="#"><?php echo ($profile[0]->Name); ?></a> </h1>
+                    <h1 class="m-0">Work Flow for <a href="#"><?php echo ucwords($profile[0]->Name); ?></a> </h1>
                 </div>
                 <!-- /.col -->
             </div>

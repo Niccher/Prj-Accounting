@@ -30,8 +30,7 @@ class Sources extends BaseController{
         }
 
         $user['profile'] = $mod_users->users_simple_profile($user_id);
-        $user_id = $user['profile'][0]->Name."-*-".$user['profile'][0]->Person_ID;
-        $source_type = strtolower($data['page_title']);
+        $user_id = $user['profile'][0]->Name."-*-".$user['profile'][0]->Id;
         $user['assignments'] = $mod_users->users_assigments_all($user_id);
 
         return view('needed/header', $data).
@@ -88,7 +87,7 @@ class Sources extends BaseController{
 
         $user['profile'] = $mod_users->users_simple_profile($user_id);
 
-        $user_id = $user['profile'][0]->Name."-*-".$user['profile'][0]->Person_ID;
+        $user_id = $user['profile'][0]->Name."-*-".$user['profile'][0]->Id;
         $source_type = strtolower($data['page_title']);
 
         $user['assignments'] = $mod_users->users_assigments($user_id, $source_type);
@@ -98,21 +97,6 @@ class Sources extends BaseController{
             view('needed/sidebar').
             view('admin/sources/show_timeline', $user).
             view('needed/footer_tables');
-    }
-
-    public function work_timeline_both(){
-        $data['title'] = "Account analytics";
-
-        $agent = $this->request->getUserAgent();
-        $uri = new \CodeIgniter\HTTP\URI($agent->getReferrer());
-
-        $data['page_title'] = "Source_both";
-
-        return view('needed/header', $data).
-            view('needed/sidebar', $data).
-            view('needed/sidebar').
-            view('admin/sources/show_timeline_both').
-            view('needed/footer');
     }
 
     public function add_entry(){
@@ -144,16 +128,11 @@ class Sources extends BaseController{
         $wrk_source = $request->getVar('inp_source');
         $wrk_status = $request->getVar('inp_status');
 
-        //$wrk_c_date = $request->getVar('inp_create_date');
         $mydatetime = str_replace('/','-', $request->getVar('inp_create_date'));
         $wrk_c_date = date("Y-m-d H:i:s", strtotime($mydatetime));
 
         $mod_entry->entry_add($wrk_name, $wrk_writer, $wrk_price, $wrk_paid, $wrk_source, $wrk_status, $wrk_c_date);
 
-        $agent = $this->request->getUserAgent();
-        $uri = new \CodeIgniter\HTTP\URI($agent->getReferrer());
-
-        //$url = "";
         if($request->getVar('inp_source') == "source_fiverr"){
             $url = "source/fiverr";
         }else{
